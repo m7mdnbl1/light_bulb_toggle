@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light Bulb Toggle</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #lightBulb {
+            width: 200px;
+            height: auto;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #toggleButton {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        #toggleButton:hover {
+            background-color: #0056b3;
+            transform: scale(1.1);
+        }
+
+        #toggleButton:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+
+<body>
+    <img id="lightBulb" src="off.png" alt="Light Bulb">
+    <br>
+    <button id="toggleButton">Turn On</button>
+
+    <script>// Get the light bulb image and the button elements
+        var lightBulb = document.getElementById('lightBulb');
+        var toggleButton = document.getElementById('toggleButton');
+
+        // Add event listener to the button to handle the click event
+        toggleButton.addEventListener('click', function () {
+            // Check the current state of the light bulb by its src attribute
+            if (lightBulb.src.includes('off.png')) {
+                // If the light bulb is off, turn it on by changing the src attribute
+                lightBulb.src = 'on.png';
+                toggleButton.textContent = 'Turn Off';
+            } else {
+                // If the light bulb is on, turn it off by changing the src attribute
+                lightBulb.src = 'off.png';
+                toggleButton.textContent = 'Turn On';
+            }
+        });
+    </script>
+</body>
+
+</html>
